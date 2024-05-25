@@ -1,24 +1,59 @@
 import * as Styled from "./styles";
 import Chart from "react-apexcharts";
+import { useMemo } from "react";
+
 interface GraphChartProps {
   title: string;
-  value: number | string;
+  item: any[];
   type: "money" | "kwh";
 }
 
-export const GraphChart = ({ title, value, type }: GraphChartProps) => {
-  const series = [
-    {
-      name: "Série 1",
-      data: [31, 40, 28, 51, 42, 109, 100],
-    },
-  ];
+export const GraphChart = ({ title, item, type }: GraphChartProps) => {
+  const { series, categories } = useMemo(() => {
+    if (!Array.isArray(item)) {
+      return { series: [], categories: [] };
+    }
+
+    const sortedData = item.sort((a, b) => {
+      const months = {
+        JAN: 1,
+        FEV: 2,
+        MAR: 3,
+        ABR: 4,
+        MAI: 5,
+        JUN: 6,
+        JUL: 7,
+        AGO: 8,
+        SET: 9,
+        OUT: 10,
+        NOV: 11,
+        DEZ: 12,
+      };
+
+      return months[a.referenceMonth] - months[b.referenceMonth];
+    });
+
+    const seriesData = sortedData.map((data: any) => {
+      if (type === "kwh") {
+        return data.consumptionElectricEnergyKWh;
+      } else if (type === "money") {
+        return data.totalValueWithoutGD.toFixed(2);
+      }
+    });
+
+    const categoriesData = sortedData.map((data: any) => data.referenceMonth);
+
+    return { series: seriesData, categories: categoriesData };
+  }, [item, type]);
 
   const options = {
     chart: {
       type: "area",
       toolbar: {
         show: false,
+      },
+      zoom: {
+        enabled: false,
       },
     },
     dataLabels: {
@@ -43,25 +78,26 @@ export const GraphChart = ({ title, value, type }: GraphChartProps) => {
     },
     colors: ["#D3FFD3"],
     xaxis: {
-      type: "datetime",
-      categories: [
-        "2022-09-19T00:00:00.000Z",
-        "2022-09-20T00:00:00.000Z",
-        "2022-09-21T00:00:00.000Z",
-        "2022-09-22T00:00:00.000Z",
-        "2022-09-23T00:00:00.000Z",
-        "2022-09-24T00:00:00.000Z",
-        "2022-09-25T00:00:00.000Z",
-      ],
+      categories: categories,
       labels: {
         style: {
           colors: "#D3FFD3",
           fontSize: "12px",
         },
       },
+      tooltip: {
+        enabled: false,
+      },
     },
     yaxis: {
       labels: {
+        formatter: (value: number | string) => {
+          if (type === "money") {
+            return `R$ ${value}`;
+          } else {
+            return value;
+          }
+        },
         style: {
           colors: "#D3FFD3",
           fontSize: "12px",
@@ -69,15 +105,23 @@ export const GraphChart = ({ title, value, type }: GraphChartProps) => {
       },
     },
     tooltip: {
-      x: {
-        format: "dd/MM/yy HH:mm",
+      custom: function ({ series, seriesIndex, dataPointIndex }: any) {
+        return `<div class="custom-tooltip">
+        <span>${type === "money" ? "R$:" : ""} ${series[seriesIndex][dataPointIndex]} ${type === "money" ? "" : "/kWh"}</span>
+        </div>`;
       },
     },
   };
+
   return (
     <Styled.Wrapper>
       <h1>{title}</h1>
-      <Chart options={options} series={series} type="area" height={350} />
+      <Chart
+        options={options}
+        series={[{ data: series }]}
+        type="area"
+        height={350}
+      />
     </Styled.Wrapper>
   );
 };

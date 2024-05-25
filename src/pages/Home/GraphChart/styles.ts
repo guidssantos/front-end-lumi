@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import theme from "../../../styles/theme";
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     width: 100%;
@@ -28,6 +29,13 @@ export const Wrapper = styled.div`
       font-weight: 700;
       font-size: 32px;
       font-variation-settings: "opsz" auto;
+    }
+
+    .custom-tooltip {
+      padding: 1rem 2rem;
+      background: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.secondary};
+      color: #ffffff;
     }
   `}
 `;

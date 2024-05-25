@@ -12,7 +12,11 @@ export const GraphCard = ({ title, value, type }: GraphCardProps) => {
       <h1>{title}</h1>
       {type === "money" ? (
         <h2>
-          <strong>R$ {value}</strong>
+          <strong>
+            {typeof value === "number"
+              ? `R$ ${value.toFixed(2)}`
+              : `R$ ${value}`}
+          </strong>
         </h2>
       ) : (
         <h2>

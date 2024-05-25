@@ -27,4 +27,12 @@ export const GraphGroup = styled.div`
 export const Filters = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
 `;
