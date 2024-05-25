@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, ElementType } from "react";
 import * as Styled from "./styles";
 
 interface ButtonProps
@@ -8,17 +8,18 @@ interface ButtonProps
   > {
   children: React.ReactNode;
   color: "primary" | "secondary";
-  onClick?: () => void;
+  Icon?: ElementType;
 }
 export const Button = ({
   children,
   color = "primary",
-  onClick,
+  Icon,
   ...props
 }: ButtonProps) => {
   return (
-    <Styled.Wrapper {...props} color={color} onClick={onClick}>
+    <Styled.Wrapper {...props} color={color}>
       <Styled.Title>{children}</Styled.Title>
+      {Icon && <Icon size={20} />}
     </Styled.Wrapper>
   );
 };

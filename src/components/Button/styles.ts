@@ -4,8 +4,10 @@ export const Wrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1.2rem;
     width: 100%;
     height: 40px;
+    padding: 10px;
     border-radius: ${theme.border.radius.xxsmall};
     background-color: ${color === "primary"
       ? theme.colors.button.primary
@@ -13,6 +15,10 @@ export const Wrapper = styled.button`
 
     h1 {
       color: ${color === "primary" ? theme.colors.primary : theme.colors.white};
+    }
+
+    svg {
+      stroke: ${({ theme }) => theme.colors.button.text};
     }
   `}
 `;
