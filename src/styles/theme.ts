@@ -39,7 +39,7 @@ export default {
     footer: "#EEEEEE",
     red: "#FF0000",
     button: {
-      text: "1b263b",
+      text: "#1b263b",
       primary: "#D3FFD3",
       secondary: "#73C973",
     },

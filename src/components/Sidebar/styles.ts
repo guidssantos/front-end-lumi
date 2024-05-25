@@ -1,4 +1,9 @@
 import styled, { css } from "styled-components";
+
+interface IconWrapperProps {
+  selected: boolean;
+}
+
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -11,16 +16,18 @@ export const Wrapper = styled.div`
   `}
 `;
 
-export const IconWrapper = styled.button`
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
+export const IconWrapper = styled.button<IconWrapperProps>`
+  ${({ theme, selected }) => css`
+    background-color: ${selected
+      ? theme.colors.secondary
+      : theme.colors.primary};
     padding: 1.2rem;
     border-radius: ${theme.border.radius.xxsmall};
 
     path,
     g,
     polyline {
-      color: ${theme.colors.text};
+      color: ${selected ? theme.colors.primary : theme.colors.text};
     }
   `}
 `;
