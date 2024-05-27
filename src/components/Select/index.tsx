@@ -4,15 +4,12 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 type SelectProps = {
   options: {
-    label: string,
-    value: string | number
+    label: string;
+    value: string | number;
   }[];
   selectedOptions: any;
   placeholder: string;
-  onSelectOption: (option: {
-    label: string,
-    value: string | number
-  }) => void;
+  onSelectOption: (option: { label: string; value: string | number }) => void;
   onRemoveAll?: () => void;
   individual?: boolean;
 };
@@ -23,7 +20,7 @@ export const Select = ({
   selectedOptions,
   onSelectOption,
   onRemoveAll,
-  individual
+  individual,
 }: SelectProps) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
@@ -36,10 +33,10 @@ export const Select = ({
     );
   }, [options, search]);
 
-
   return (
     <S.SelectWrapper>
       <S.SelectContainer
+        data-testid="select-input"
         onClick={() => setShowOptions((prevState) => !prevState)}
       >
         <input
@@ -47,13 +44,13 @@ export const Select = ({
           value={
             individual
               ? filteredOptions.find(
-                  (option) => option.value === selectedOptions
+                  (option) => option.value === selectedOptions,
                 )?.label
               : search
           }
           onChange={(e) => {
-            setSearch(e.target.value)
-            if (!showOptions) setShowOptions(true)
+            setSearch(e.target.value);
+            if (!showOptions) setShowOptions(true);
           }}
         />
         <S.IconContainer>
@@ -71,7 +68,7 @@ export const Select = ({
       )}
       {showOptions && (
         <S.OptionsContainer>
-          <S.OptionsList>
+          <S.OptionsList data-testid="options">
             {filteredOptions?.map((option) => (
               <S.Option
                 key={option.value}
@@ -81,19 +78,20 @@ export const Select = ({
                     : selectedOptions.includes(option.value)
                 }
                 onClick={() => onSelectOption(option)}
+                data-testid="option"
               >
                 {!individual && <div></div>}
                 <span>{option.label}</span>
               </S.Option>
             ))}
           </S.OptionsList>
-          {onRemoveAll && (
+          {!individual && (
             <button
               onClick={() => {
-                setSearch('')
-                setShowOptions(false)
-                if (selectedOptions.length === 0) return
-                onRemoveAll()
+                setSearch("");
+                setShowOptions(false);
+                if (selectedOptions.length === 0) return;
+                onRemoveAll && onRemoveAll();
               }}
             >
               Remover todos
@@ -102,5 +100,5 @@ export const Select = ({
         </S.OptionsContainer>
       )}
     </S.SelectWrapper>
-  )
+  );
 };
