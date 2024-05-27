@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components";
 export const Container = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    height: 100%;
-    min-height: 100vh;
-  `}
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
 `;
 export const Wrapper = styled.div`
   ${({ theme }) => css`

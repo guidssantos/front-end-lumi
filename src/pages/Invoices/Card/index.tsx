@@ -4,12 +4,6 @@ import { Button } from "../../../components/Button";
 import { useDownloadInvoice } from "../../../hooks/useInvoices";
 import { toast } from "react-toastify";
 
-interface CardProps {
-  title: string;
-  value: number | string;
-  type: "money" | "kwh";
-}
-
 export const Card = ({ item }: any) => {
   const { mutate, isLoading } = useDownloadInvoice();
 

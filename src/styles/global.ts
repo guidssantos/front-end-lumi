@@ -1,7 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap'); */
 * {
     margin: 0;
     padding: 0;

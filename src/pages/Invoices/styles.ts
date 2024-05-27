@@ -1,11 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-  `}
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 `;
 
 export const Header = styled.div`

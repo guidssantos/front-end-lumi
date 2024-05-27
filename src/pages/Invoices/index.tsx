@@ -11,12 +11,10 @@ import { Select } from "../../components/Select";
 import { options } from "./constants";
 
 export const Invoices = () => {
-  const [clientNumber, setClientNumber] = useState<number>();
   const [filters, setFilters] = useState<any>({});
   const { openedModals, openModal, closeModal } = useModal();
   const {
     data: invoices,
-    isLoading,
     isError,
     refetch,
   } = useGetInvoice({
@@ -99,7 +97,7 @@ export const Invoices = () => {
           </div>
         )}
         {invoices?.data.length > 0 &&
-          invoices?.data.map((item) => <Card item={item} />)}
+          invoices?.data.map((item: any) => <Card item={item} />)}
       </Styled.GraphGroup>
       {openedModals.includes("importInvoice") && (
         <InvoiceModal onClose={() => closeModal("importInvoice")} />

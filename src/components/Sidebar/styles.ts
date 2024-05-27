@@ -5,15 +5,13 @@ interface IconWrapperProps {
 }
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #0e1917;
-    width: 80px;
-    padding: 4rem;
-    gap: 1.6rem;
-  `}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0e1917;
+  width: 80px;
+  padding: 4rem;
+  gap: 1.6rem;
 `;
 
 export const IconWrapper = styled.button<IconWrapperProps>`

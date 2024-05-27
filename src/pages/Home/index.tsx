@@ -10,9 +10,8 @@ import * as Styled from "./styles";
 
 export const Home = () => {
   const [clientNumber, setClientNumber] = useState<number>();
-  const { data, isLoading, error } = useGetDashboardInvoice(clientNumber);
-  const { data: dataGraph, isLoading: isLoadingGraph } =
-    useGetDashboardGraphInvoice(clientNumber);
+  const { data } = useGetDashboardInvoice(clientNumber);
+  const { data: dataGraph } = useGetDashboardGraphInvoice(clientNumber);
 
   return (
     <Styled.Wrapper>

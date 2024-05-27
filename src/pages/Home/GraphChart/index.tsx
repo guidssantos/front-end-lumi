@@ -28,7 +28,7 @@ export const GraphChart = ({ title, item, type }: GraphChartProps) => {
         OUT: 10,
         NOV: 11,
         DEZ: 12,
-      };
+      } as any;
 
       return months[a.referenceMonth] - months[b.referenceMonth];
     });
@@ -111,7 +111,7 @@ export const GraphChart = ({ title, item, type }: GraphChartProps) => {
         </div>`;
       },
     },
-  };
+  } as any;
 
   return (
     <Styled.Wrapper>
