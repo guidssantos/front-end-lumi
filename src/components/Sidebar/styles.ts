@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IconWrapperProps {
-  selected: boolean;
+  selected?: boolean;
 }
 
 export const Wrapper = styled.div`

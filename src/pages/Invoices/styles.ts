@@ -27,10 +27,19 @@ export const Filters = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
 `;
 
 export const InputsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `;

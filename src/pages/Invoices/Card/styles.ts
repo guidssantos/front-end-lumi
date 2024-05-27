@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
     background: #0e1917;
     /* border: 1px solid ${theme.colors.secondary}; */
     border-radius: ${theme.border.radius.xxsmall};
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 1.6rem;
+    }
   `}
 `;
 
@@ -61,6 +66,10 @@ export const LeftWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const RighWrapper = styled.div``;

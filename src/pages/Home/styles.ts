@@ -19,4 +19,8 @@ export const Header = styled.div`
 export const GraphGroup = styled.div`
   display: flex;
   gap: 1.6rem;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
 `;

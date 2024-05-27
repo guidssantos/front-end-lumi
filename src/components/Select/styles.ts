@@ -12,7 +12,6 @@ export const SelectContainer = styled.div`
 
   display: flex;
   flex-wrap: no-wrap;
-  min-width: 240px;
 
   input {
     all: unset;
