@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+# README - Front-end Lumi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao README do Front-end Lumi! Este documento contém informações detalhadas sobre como configurar, instalar, executar e usar a aplicação front-end Lumi.
 
-Currently, two official plugins are available:
+## Configuração
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de iniciar a instalação da aplicação, é importante garantir que seu ambiente esteja configurado corretamente. Certifique-se de ter o Node.js e o npm instalados em sua máquina.
 
-## Expanding the ESLint configuration
+## Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para instalar as dependências necessárias para a aplicação, execute o seguinte comando no terminal:
 
-- Configure the top-level `parserOptions` property like this:
+npm install
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Este comando irá instalar todas as dependências listadas no arquivo package.json.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Execução
+
+Após a instalação das dependências, você pode iniciar a aplicação em modo de desenvolvimento com o seguinte comando:
+
+npm run dev
+
+Este comando iniciará o servidor de desenvolvimento e abrirá a aplicação em seu navegador padrão.
+
+## Uso
+
+Agora que a aplicação está em execução, você pode começar a explorar suas funcionalidades. Aqui estão algumas das principais tecnologias e bibliotecas utilizadas na aplicação:
+
+- React: Uma biblioteca JavaScript para construir interfaces de usuário.
+- React Router: Uma biblioteca para roteamento de páginas no React.
+- Styled Components: Uma biblioteca para estilizar componentes React com CSS no JS.
+- Axios: Uma biblioteca para fazer requisições HTTP.
+- React Query: Uma biblioteca para gerenciamento de estado e requisições assíncronas.
+- ApexCharts: Uma biblioteca para criação de gráficos interativos.
+- React Toastify: Uma biblioteca para exibir notificações de forma elegante.
+
+## Comandos Úteis
+
+Além dos comandos mencionados acima, aqui estão alguns comandos adicionais que podem ser úteis durante o desenvolvimento:
+
+- npm run build: Compila o código TypeScript e cria uma versão otimizada da aplicação para produção.
+- npm run lint: Executa a análise estática do código com ESLint para garantir boas práticas de codificação.
+- npm run test: Executa os testes unitários da aplicação com Jest.
