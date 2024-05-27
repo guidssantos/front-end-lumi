@@ -11,9 +11,6 @@ export default defineConfig({
       utils: `${__dirname}/src/utils`,
     },
   },
-  optimizeDeps: {
-    disabled: true,
-  },
   define: {
     "proces.env": process.env,
     global: "window",
