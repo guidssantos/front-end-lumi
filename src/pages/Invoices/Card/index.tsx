@@ -18,6 +18,7 @@ export const Card = ({ item }: any) => {
         document.body.appendChild(link);
         link.click();
         link.remove();
+        toast.success("Fatura baixada com sucesso!");
       },
       onError: () => {
         toast.error("Erro ao baixar fatura!");

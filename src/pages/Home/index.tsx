@@ -17,7 +17,7 @@ export const Home = () => {
     <Styled.Wrapper>
       <Styled.Header>
         <span>
-          <strong>Olá, </strong>Guilherme
+          <strong>Olá, </strong>Usuario
         </span>
       </Styled.Header>
       <FormInput

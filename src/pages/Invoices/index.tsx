@@ -100,7 +100,10 @@ export const Invoices = () => {
           invoices?.data.map((item: any) => <Card item={item} />)}
       </Styled.GraphGroup>
       {openedModals.includes("importInvoice") && (
-        <InvoiceModal onClose={() => closeModal("importInvoice")} />
+        <InvoiceModal
+          onClose={() => closeModal("importInvoice")}
+          refetch={refetch}
+        />
       )}
     </Styled.Wrapper>
   );

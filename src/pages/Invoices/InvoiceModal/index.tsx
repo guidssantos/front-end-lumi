@@ -8,9 +8,10 @@ import { usePostInvoice } from "../../../hooks/useInvoices";
 
 interface InvoiceModalProps {
   onClose: () => void;
+  refetch?: any;
 }
 
-export const InvoiceModal = ({ onClose }: InvoiceModalProps) => {
+export const InvoiceModal = ({ onClose, refetch }: InvoiceModalProps) => {
   const [base64, setBase64] = useState<string | null>("");
   const { mutate, isLoading, error } = usePostInvoice();
 
@@ -19,6 +20,7 @@ export const InvoiceModal = ({ onClose }: InvoiceModalProps) => {
       mutate(base64, {
         onSuccess: () => {
           toast.success("Fatura importada com sucesso!");
+          refetch();
           onClose();
         },
         onError: () => {

@@ -37,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
     .Toastify__toast-body {
       > div:last-of-type {
         font-size: 1.4rem;
+        color: black;
       }
     }
   `}
