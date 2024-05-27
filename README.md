@@ -1,6 +1,8 @@
 # README - Front-end Lumi
 
 Bem-vindo ao README do Front-end Lumi! Este documento contém informações detalhadas sobre como configurar, instalar, executar e usar a aplicação front-end Lumi.
+Acesse a aplicação pelo seguinte link:
+front-end-lumi.s3-website-us-east-1.amazonaws.com
 
 ## Configuração
 
